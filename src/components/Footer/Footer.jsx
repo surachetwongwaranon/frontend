@@ -1,22 +1,26 @@
 import React from 'react'
-import './footer.css'
+import './Footer.css'
 import { Container, Row, Col, ListGroup, ListGroupItem } from 'reactstrap'
 import { Link } from 'react-router-dom'
 import logo from '../../assets/images/logo.png'
 
 const quick__links = [
-   {
-      path: '/home',
-      display: 'Home'
-   },
-   {
-      path: '/about',
-      display: 'About'
-   },
-   {
-      path: '/tours',
-      display: 'Tours'
-   },
+  {
+    path: '/home',
+    display: 'หน้าหลัก'
+ },
+ {
+    path: '/tours',
+    display: 'ทัวร์ต่างประเทศ'
+ },
+ {
+    path: '/toursPro',
+    display: 'ทัวร์ดีลลดราคาพิเศษ'
+ },
+ {
+    path: '/toursSingle',
+    display: 'ทัวร์เที่ยวคนเดียวแบบไม่เกรงใจใคร'
+ },
 ]
 
 
