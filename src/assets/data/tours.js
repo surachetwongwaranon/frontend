@@ -19,14 +19,14 @@ const tours = [
     reviews: [
       {
         name: "jhon doe",
-        rating: 4.6,
+        rating: 3,
       },
       {
          name: "jhon doe",
-         rating: 5,
+         rating: 3,
        },
     ],
-    avgRating: 4.5,
+    avgRating: 3,
     photo: tourImg01,
     featured: true,
   },
@@ -42,10 +42,10 @@ const tours = [
     reviews: [
       {
         name: "jhon doe",
-        rating: 4.6,
+        rating: 5,
       },
     ],
-    avgRating: 4.5,
+    avgRating: 5,
     photo: tourImg02,
     featured: true,
   },
@@ -61,10 +61,10 @@ const tours = [
     reviews: [
       {
         name: "jhon doe",
-        rating: 4.6,
+        rating: 4,
       },
     ],
-    avgRating: 4.5,
+    avgRating: 4,
     photo: tourImg03,
     featured: true,
   },
@@ -80,10 +80,10 @@ const tours = [
     reviews: [
       {
         name: "jhon doe",
-        rating: 4.6,
+        rating: 4,
       },
     ],
-    avgRating: 4.5,
+    avgRating: 4,
     photo: tourImg04,
     featured: true,
   },
@@ -99,10 +99,10 @@ const tours = [
     reviews: [
       {
         name: "jhon doe",
-        rating: 4.6,
+        rating: 3,
       },
     ],
-    avgRating: 4.5,
+    avgRating: 3,
     photo: tourImg05,
     featured: false,
   },
@@ -118,10 +118,10 @@ const tours = [
     reviews: [
       {
         name: "jhon doe",
-        rating: 4.4,
+        rating: 5,
       },
     ],
-    avgRating: 4.5,
+    avgRating: 5,
     photo: tourImg06,
     featured: false,
   },
@@ -137,10 +137,10 @@ const tours = [
     reviews: [
       {
         name: "jhon doe",
-        rating: 4.7,
+        rating: 5,
       },
     ],
-    avgRating: 4.5,
+    avgRating: 5,
     photo: tourImg07,
     featured: false,
   },
@@ -155,7 +155,7 @@ const tours = [
     desc: "this is the description",
     reviews: [
     ],
-    avgRating: 4.5,
+    avgRating: 5,
     photo: tourImg03,
     featured: false,
   },

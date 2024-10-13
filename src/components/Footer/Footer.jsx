@@ -10,17 +10,17 @@ const quick__links = [
     display: 'หน้าหลัก'
  },
  {
-    path: '/tours',
-    display: 'ทัวร์ต่างประเทศ'
- },
- {
     path: '/toursPro',
     display: 'ทัวร์ดีลลดราคาพิเศษ'
  },
  {
     path: '/toursSingle',
-    display: 'ทัวร์เที่ยวคนเดียวแบบไม่เกรงใจใคร'
+    display: 'ทัวร์เที่ยวยอดนิยม'
  },
+ {
+   path: '/tours',
+   display: 'ทัวร์ทั้งหมด'
+},
 ]
 
 
