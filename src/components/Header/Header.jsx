@@ -26,9 +26,6 @@ const nav__links = [
 const Header = () => {
   const headerRef = useRef(null)
   const menuRef = useRef(null)
-  const navigate = useNavigate()
-
-
 
   const stickyHeaderFunc = () => {
      window.addEventListener('scroll', () => {
@@ -53,13 +50,10 @@ const Header = () => {
         <Container>
            <Row>
               <div className="nav__wrapper d-flex align-items-center justify-content-between">
-                 {/* ========== LOGO ========== */}
                  <div className="logo">
                     <img src={Logo} alt="" />
                  </div>
-                 {/* ========================== */}
 
-                 {/* ========== MENU START ========== */}
                  <div className="navigation" ref={menuRef} onClick={toggleMenu}>
                     <ul className="menu d-flex align-items-center gap-4">
                        {
