@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useContext } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Container, Row } from 'reactstrap'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import Logo from '../../assets/images/logo.png'
 import "./Header.css"
 
@@ -14,7 +14,7 @@ const nav__links = [
       display: 'ทัวร์ดีลลดราคาพิเศษ'
    },
    {
-      path: '/toursSingle',
+      path: '/toursRating',
       display: 'ทัวร์เที่ยวยอดนิยม'
    },
    {

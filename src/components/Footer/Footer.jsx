@@ -14,7 +14,7 @@ const quick__links = [
     display: 'ทัวร์ดีลลดราคาพิเศษ'
  },
  {
-    path: '/toursSingle',
+    path: '/toursRating',
     display: 'ทัวร์เที่ยวยอดนิยม'
  },
  {
@@ -25,7 +25,7 @@ const quick__links = [
 
 
 const Footer = () => {
-   const year = new Date().getFullYear()
+
 
    return (
       <footer className='footer'>
