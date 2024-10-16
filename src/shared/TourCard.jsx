@@ -38,7 +38,7 @@ const TourCard = ({ tour }) => {
                <h5 className='tour__title'><Link to={`/tour/${_id}`}>{title}</Link></h5>
 
                <div className="card__bottom d-flex align-items-center justify-content-between mt-3">
-                  <h5>${price} <span> /ต่อคน</span></h5>
+                  <h5>฿{price ? price.toLocaleString() : 'N/A'} <span> /ต่อคน</span></h5>
                </div>
             </CardBody>
          </Card>

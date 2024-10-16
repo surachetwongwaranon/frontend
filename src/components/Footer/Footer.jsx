@@ -34,7 +34,7 @@ const Footer = () => {
                <Col lg='3'>
                   <div className="logo">
                      <img src={logo} alt="" />
-                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, enim.</p>
+                     <p>ศูนย์บริการลูกค้า<br/>ระบบจองทัวร์ออนไลน์เชื่อมทัวร์<br/>เปิดบริการทุกวัน 07.00 - 18.00 น.</p>
                      <div className="social__link d-flex align-items-center gap-4">
                         <span>
                            <Link to='#'>
