@@ -1,6 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, useContext } from 'react'
 import '../styles/tour-details.css'
-// import tourData from '../assets/data/tours'
 import { Container, Row, Col, Form, ListGroup } from 'reactstrap'
 import { useParams } from 'react-router-dom'
 import calculateAvgRating from '../utils/avgRating'
@@ -8,11 +7,13 @@ import avatar from '../assets/images/avatar.jpg'
 import Booking from '../components/Booking/Booking'
 import useFetch from '../hooks/useFetch'
 import { BASE_URL } from '../utils/config'
+import { AuthContext } from '../context/AuthContext'
 
 const TourDetails = () => {
    const { id } = useParams()
    const reviewMsgRef = useRef('')
    const [tourRating, setTourRating] = useState(null)
+   const { user } = useContext(AuthContext)
 
    const { data: tour, loading, error } = useFetch(`${BASE_URL}/tours/${id}`)
 
@@ -27,7 +28,11 @@ const TourDetails = () => {
       const reviewText = reviewMsgRef.current.value
 
       try {
+         if (!user || user === undefined || user === null) {
+            alert('Please sign in')
+         }
          const reviewObj = {
+            username: user?.username,
             reviewText,
             rating: tourRating
          }
@@ -40,8 +45,6 @@ const TourDetails = () => {
             credentials: 'include',
             body: JSON.stringify(reviewObj)
          })
-
-         console.log(`${BASE_URL}/review/${id}`);
 
          const result = await res.json()
          if (!res.ok) {
@@ -82,7 +85,7 @@ const TourDetails = () => {
 
                            <div className="tour__extra-details">
                               <span><i class='ri-map-pin-2-line'></i> {city}</span>
-                              <span><i class='ri-money-dollar-circle-line'></i> {price ? price.toLocaleString() : 'N/A'}/ต่อคน</span>
+                              <span><i class='ri-money-dollar-circle-line'></i> {price ? price.toLocaleString() : 'N/A'} / ต่อคน</span>
                            </div>
                            <h5>Description</h5>
                            <p>{desc}</p>
@@ -117,7 +120,7 @@ const TourDetails = () => {
                                        <div className="w-100">
                                           <div className="d-flex align-items-center justify-content-between">
                                              <div>
-                                                <h5>Anonymous</h5>
+                                                <h5>{review.username}</h5>
                                                 <p>{new Date(review.createdAt).toLocaleDateString('en-US', options)}</p>
                                              </div>
 
@@ -137,7 +140,7 @@ const TourDetails = () => {
                   </Col>
 
                   <Col lg='4'>
-                     <Booking tour={tour} avgRating={avgRating}/>
+                     <Booking tour={tour} avgRating={avgRating} />
                   </Col>
                </Row>
             }

@@ -16,7 +16,7 @@ const TourCard = ({ tour }) => {
          <Card>
             <div className="tour__img">
                <img src={photo} alt="tour-img" />
-               {featured && <span>โปรโมชั่น</span>}
+               {featured && <span className='sale-featured'>SALE</span>}
             </div>
 
             <CardBody>

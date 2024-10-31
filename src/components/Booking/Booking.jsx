@@ -48,7 +48,7 @@ const Booking = ({tour, avgRating}) => {
   return (
     <div className='booking'>
         <div className='booking__top d-flex align-items-center justify-content-between'>
-            <h3>฿{price ? price.toLocaleString() : 'N/A'} <span>/ต่อคน</span></h3>
+            <h3>฿{price ? price.toLocaleString() : 'N/A'} <span> / ต่อคน</span></h3>
             <span className="tour__rating d-flex align-items-center">
                 <i class='ri-star-fill'></i> {avgRating === 0 ? null : avgRating} ({reviews?.length})
             </span>
