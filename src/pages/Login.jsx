@@ -43,7 +43,7 @@ const Login = () => {
          if (result.role === 'user') {
             navigate('/');
         } else {
-            navigate('/thank-you');
+            navigate('/admin-home');
         }
       } catch(err) {
          dispatch({type:"LOGIN_FAILURE", payload:err.message})

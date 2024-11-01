@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useContext } from 'react'
+import React, { useEffect, useRef, useContext, useCallback } from 'react'
 import { Container, Row, Button } from 'reactstrap'
 import { NavLink, Link, useNavigate } from 'react-router-dom'
 import Logo from '../../assets/images/logo.png'
@@ -35,21 +35,25 @@ const Header = () => {
       navigate('/')
    }
 
-   const stickyHeaderFunc = () => {
-      window.addEventListener('scroll', () => {
+   const stickyHeaderFunc = useCallback(() => {
+      const handleScroll = () => {
          if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-            headerRef.current.classList.add('sticky__header')
+            headerRef.current?.classList.add('sticky__header')
          } else {
-            headerRef.current.classList.remove('sticky__header')
+            headerRef.current?.classList.remove('sticky__header')
          }
-      })
-   }
+      }
+      
+      window.addEventListener('scroll', handleScroll)
+      return () => window.removeEventListener('scroll', handleScroll)
+   }, [])
 
    useEffect(() => {
       stickyHeaderFunc()
 
       return window.removeEventListener('scroll', stickyHeaderFunc)
    })
+   
 
    const toggleMenu = () => menuRef.current.classList.toggle('show__menu')
 

@@ -9,6 +9,7 @@ import ThankYou from './../pages/ThankYou'
 import Login from './../pages/Login'
 import Register from './../pages/Register'
 import AdminHome from '../pages/pages_admin/adminHome'
+import AdminTourDetails from '../pages/pages_admin/AdminTourDetails'
 
 import SearchResultList from './../pages/SearchResultList'
 
@@ -26,6 +27,7 @@ const Routers = () => {
       <Route path='/login' element={<Login/>} />
       <Route path='/register' element={<Register/>} />
       <Route path='/admin-home' element={<AdminHome/>} />
+      <Route path='/admin-tour/:id' element={<AdminTourDetails/>} />
     </Routes>
   )
 }

@@ -1,0 +1,82 @@
+.tour__content img {
+    width        : 100%;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+ }
+ 
+ .tour__info {
+    border-radius: 0.5rem;
+    border       : 1px solid var(--secondary-color);
+    padding      : 1.5rem;
+ }
+ 
+ .tour__info h2 {
+    font-size: 1.5rem;
+ }
+ 
+ .tour__info span {
+    display    : flex;
+    align-items: center;
+    column-gap : 0.5rem;
+    font-size  : 0.8rem;
+    color      : var(--text-color);
+ }
+ 
+ .tour__info span i {
+    color    : var(--primary-color);
+    font-size: 1rem;
+ }
+ 
+ .tour__extra-details {
+    display      : flex;
+    align-items  : center;
+    column-gap   : 2.5rem;
+    margin-bottom: 2.5rem;
+ }
+ 
+ .tour__info h5 {
+    margin-bottom: 1rem;
+    font-size    : 1.3rem;
+ }
+ 
+ .tour__info p {
+    line-height: 30px;
+    font-size  : 1rem;
+    color      : var(--text-color);
+ }
+ 
+ 
+ .Input__info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--primary-color);
+    margin-bottom: 1rem;
+ }
+ 
+ .Input__info input {
+    width: 100%;
+    padding: 0.5rem 0;
+    border: none;
+    outline: none;
+ }
+
+ 
+ /* =============== RESPONSIVE ================ */
+ @media only screen and (max-width: 768px) {
+    .tour__extra-details {
+       flex-wrap: wrap;
+       row-gap: 1rem;
+    }
+ 
+    .tour__extra-details span {
+       font-size: 0.9rem;
+    }
+ 
+    .tour__extra-details span i {
+       font-size: 1rem;
+    }
+ }  
