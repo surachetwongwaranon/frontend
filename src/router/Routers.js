@@ -6,7 +6,6 @@ import TourDetails from './../pages/TourDetails'
 import ToursPro from './../pages/ToursPro'
 import ToursRating from './../pages/ToursRating'
 import ThankYou from './../pages/ThankYou'
-import Payment from './../pages/Payment'
 import Login from './../pages/Login'
 import Register from './../pages/Register'
 
@@ -23,7 +22,6 @@ const Routers = () => {
       <Route path='/toursRating' element={<ToursRating/>} />
       <Route path='/tours/search' element={<SearchResultList/>} />
       <Route path='/thank-you' element={<ThankYou/>} />
-      <Route path='/Payment' element={<Payment/>} />
       <Route path='/login' element={<Login/>} />
       <Route path='/register' element={<Register/>} />
     </Routes>

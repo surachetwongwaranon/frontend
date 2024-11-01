@@ -87,3 +87,11 @@
     transform: scale(1.1);
     transition: 0.5s;
  }
+
+ .img-box img{
+   width        : 70%;
+   height       : 70%;
+   border-radius: 20px;
+   border       : 1px solid var(--secondary-color);
+   object-fit   : cover;
+}

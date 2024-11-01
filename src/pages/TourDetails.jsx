@@ -1,41 +1,40 @@
-import React, { useState, useRef, useEffect, useContext } from 'react'
-import '../styles/tour-details.css'
-import { Container, Row, Col, Form, ListGroup } from 'reactstrap'
-import { useParams } from 'react-router-dom'
-import calculateAvgRating from '../utils/avgRating'
-import avatar from '../assets/images/avatar.jpg'
-import Booking from '../components/Booking/Booking'
-import useFetch from '../hooks/useFetch'
-import { BASE_URL } from '../utils/config'
-import { AuthContext } from '../context/AuthContext'
+import React, { useState, useRef, useEffect, useContext } from 'react';
+import '../styles/tour-details.css';
+import { Container, Row, Col, Form, ListGroup } from 'reactstrap';
+import { useParams, useNavigate } from 'react-router-dom';
+import calculateAvgRating from '../utils/avgRating';
+import avatar from '../assets/images/avatar.jpg';
+import Booking from '../components/Booking/Booking';
+import useFetch from '../hooks/useFetch';
+import { BASE_URL } from '../utils/config';
+import { AuthContext } from '../context/AuthContext';
 
 const TourDetails = () => {
-   const { id } = useParams()
-   const reviewMsgRef = useRef('')
-   const [tourRating, setTourRating] = useState(null)
-   const { user } = useContext(AuthContext)
+   const { id } = useParams();
+   const navigate = useNavigate(); // ใช้ useNavigate
+   const reviewMsgRef = useRef('');
+   const [tourRating, setTourRating] = useState(null);
+   const { user } = useContext(AuthContext);
+   const { data: tour, loading, error } = useFetch(`${BASE_URL}/tours/${id}`);
 
-   const { data: tour, loading, error } = useFetch(`${BASE_URL}/tours/${id}`)
-
-   const { photo, title, desc, price, reviews, city, address } = tour
-
-   const { totalRating, avgRating } = calculateAvgRating(reviews)
-
-   const options = { day: 'numeric', month: 'long', year: 'numeric' }
+   const { photo, title, desc, price, reviews, city, address } = tour;
+   const { totalRating, avgRating } = calculateAvgRating(reviews);
+   const options = { day: 'numeric', month: 'long', year: 'numeric' };
 
    const submitHandler = async e => {
-      e.preventDefault()
-      const reviewText = reviewMsgRef.current.value
+      e.preventDefault();
+      const reviewText = reviewMsgRef.current.value;
 
       try {
          if (!user || user === undefined || user === null) {
-            alert('Please sign in')
+            alert('Please sign in');
+            return; // Exit the function if user is not logged in
          }
          const reviewObj = {
             username: user?.username,
             reviewText,
             rating: tourRating
-         }
+         };
 
          const res = await fetch(`${BASE_URL}/review/${id}`, {
             method: 'post',
@@ -44,22 +43,24 @@ const TourDetails = () => {
             },
             credentials: 'include',
             body: JSON.stringify(reviewObj)
-         })
+         });
 
-         const result = await res.json()
+         const result = await res.json();
          if (!res.ok) {
-            return alert(result.message)
+            return alert(result.message);
          }
-         alert(result.message)
+         alert(result.message);
+
+         // หลังจากส่งรีวิวแล้วไปที่หน้า Payment พร้อมส่งข้อมูล
+         navigate(`/payment/${id}`, { state: { tour, reviewObj } });
       } catch (error) {
-         alert(error.message)
+         alert(error.message);
       }
-   }
+   };
 
    useEffect(() => {
-      window.scrollTo(0, 0)
-   }, [tour])
-
+      window.scrollTo(0, 0);
+   }, [tour]);
 
    return (
       <section>
@@ -72,20 +73,18 @@ const TourDetails = () => {
                   <Col lg='8'>
                      <div className="tour__content">
                         <img src={photo} alt="" />
-
                         <div className="tour__info">
                            <h2>{title}</h2>
                            <div className="d-flex align-items-center gap-5">
                               <span className="tour__rating d-flex align-items-center gap-1">
-                                 <i class='ri-star-fill' style={{ 'color': 'var(--secondary-color)' }}></i> {avgRating === 0 ? null : avgRating}
+                                 <i className='ri-star-fill' style={{ 'color': 'var(--secondary-color)' }}></i> {avgRating === 0 ? null : avgRating}
                                  {avgRating === 0 ? ('Not rated') : (<span>({reviews?.length})</span>)}
                               </span>
-                              <span><i class='ri-map-pin-fill'></i> {address}</span>
+                              <span><i className='ri-map-pin-fill'></i> {address}</span>
                            </div>
-
                            <div className="tour__extra-details">
-                              <span><i class='ri-map-pin-2-line'></i> {city}</span>
-                              <span><i class='ri-money-dollar-circle-line'></i> {price ? price.toLocaleString() : 'N/A'} / ต่อคน</span>
+                              <span><i className='ri-map-pin-2-line'></i> {city}</span>
+                              <span><i className='ri-money-dollar-circle-line'></i> {price ? price.toLocaleString() : 'N/A'} / ต่อคน</span>
                            </div>
                            <h5>Description</h5>
                            <p>{desc}</p>
@@ -93,16 +92,14 @@ const TourDetails = () => {
 
                         <div className="tour__reviews mt-4">
                            <h4>Reviews ({reviews?.length} reviews)</h4>
-
                            <Form onSubmit={submitHandler}>
                               <div className="d-flex align-items-center gap-3 mb-4 rating__group">
-                                 <span onClick={() => setTourRating(1)}>1 <i class='ri-star-s-fill'></i></span>
-                                 <span onClick={() => setTourRating(2)}>2 <i class='ri-star-s-fill'></i></span>
-                                 <span onClick={() => setTourRating(3)}>3 <i class='ri-star-s-fill'></i></span>
-                                 <span onClick={() => setTourRating(4)}>4 <i class='ri-star-s-fill'></i></span>
-                                 <span onClick={() => setTourRating(5)}>5 <i class='ri-star-s-fill'></i></span>
+                                 <span onClick={() => setTourRating(1)}>1 <i className='ri-star-s-fill'></i></span>
+                                 <span onClick={() => setTourRating(2)}>2 <i className='ri-star-s-fill'></i></span>
+                                 <span onClick={() => setTourRating(3)}>3 <i className='ri-star-s-fill'></i></span>
+                                 <span onClick={() => setTourRating(4)}>4 <i className='ri-star-s-fill'></i></span>
+                                 <span onClick={() => setTourRating(5)}>5 <i className='ri-star-s-fill'></i></span>
                               </div>
-
                               <div className="review__input">
                                  <input type="text" ref={reviewMsgRef} placeholder='share your thoughts' required />
                                  <button className='btn primary__btn text-white' type='submit'>
@@ -114,21 +111,18 @@ const TourDetails = () => {
                            <ListGroup className='user__reviews'>
                               {
                                  reviews?.map(review => (
-                                    <div className="review__item">
+                                    <div className="review__item" key={review._id}>
                                        <img src={avatar} alt="" />
-
                                        <div className="w-100">
                                           <div className="d-flex align-items-center justify-content-between">
                                              <div>
                                                 <h5>{review.username}</h5>
                                                 <p>{new Date(review.createdAt).toLocaleDateString('en-US', options)}</p>
                                              </div>
-
                                              <span className='d-flex align-items-center'>
-                                                {review.rating}<i class='ri-star-s-fill'></i>
+                                                {review.rating}<i className='ri-star-s-fill'></i>
                                              </span>
                                           </div>
-
                                           <h6>{review.reviewText}</h6>
                                        </div>
                                     </div>
@@ -146,6 +140,7 @@ const TourDetails = () => {
             }
          </Container>
       </section>
-   )
-}
+   );
+};
+
 export default TourDetails;
