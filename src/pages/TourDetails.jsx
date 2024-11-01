@@ -28,7 +28,6 @@ const TourDetails = () => {
       try {
          if (!user || user === undefined || user === null) {
             alert('Please sign in');
-            return; // Exit the function if user is not logged in
          }
          const reviewObj = {
             username: user?.username,
@@ -50,9 +49,6 @@ const TourDetails = () => {
             return alert(result.message);
          }
          alert(result.message);
-
-         // หลังจากส่งรีวิวแล้วไปที่หน้า Payment พร้อมส่งข้อมูล
-         navigate(`/payment/${id}`, { state: { tour, reviewObj } });
       } catch (error) {
          alert(error.message);
       }
