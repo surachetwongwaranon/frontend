@@ -18,15 +18,15 @@ const Home = () => {
                 <Col lg='6'>
                     <div className="hero__content">
                         <div className="hero__subtitle d-flex align-item-center">
-                            <Subtitle subtitle={'Know before You Go'} />
+                            <Subtitle subtitle={'Enjoy every step of your journey.'} />
                             <img src={WorldImg} alt=""/>
                         </div>
                         <h1>Traveling opens the door to creating <span className='hightlight'> memories</span></h1>
-                        <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                        Ullam ipsum nobis asperiores soluta voluptas quas voluptates.
-                        Molestiae tempora dignissimos, animi praesentium molestias perferendis
-                        porro expedita delectus. Soluta natus porro.
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        Tourism is an activity that is important to life and society. In addition to providing enjoyment and relaxation, 
+                        tourism also helps to broaden perspectives and create new experiences for travelers. Experiencing diverse cultures, 
+                        history, architecture, and beautiful nature fosters understanding and appreciation for the differences among people and places. 
+                        Therefore, planning and managing tourism is essential. Let us assist you as we travel together!!
                         </p>
                     </div>
                 </Col>

@@ -8,6 +8,7 @@ import ToursRating from './../pages/ToursRating'
 import ThankYou from './../pages/ThankYou'
 import Login from './../pages/Login'
 import Register from './../pages/Register'
+import AdminHome from '../pages/pages_admin/adminHome'
 
 import SearchResultList from './../pages/SearchResultList'
 
@@ -24,6 +25,7 @@ const Routers = () => {
       <Route path='/thank-you' element={<ThankYou/>} />
       <Route path='/login' element={<Login/>} />
       <Route path='/register' element={<Register/>} />
+      <Route path='/admin-home' element={<AdminHome/>} />
     </Routes>
   )
 }

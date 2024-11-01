@@ -65,7 +65,7 @@ const Footer = () => {
                   </ListGroup>
                </Col>
                
-               <Col lg='3'className="col">
+               <Col lg='5'className="col">
                   <h5 className="footer__link-title">Contact</h5>
 
                   <ListGroup className='footer__quick-links'>
@@ -74,7 +74,7 @@ const Footer = () => {
                            <span><i class='ri-map-pin-line'></i></span>
                            Address:
                         </h6>
-                        <p className='mb-0'>Lorem</p>
+                        <p className='mb-0'>199 หมู่ที่ 6 ถนนสุขุมวิท ตำบลทุ่งสุขลา อำเภอศรีราชา ชลบุรี 20230</p>
                      </ListGroupItem>
 
                      <ListGroupItem className='ps-0 border-0 d-flex align-items-center gap-3'>
@@ -83,7 +83,7 @@ const Footer = () => {
                            Email:
                         </h6>
 
-                        <p className='mb-0'>Lorem</p>
+                        <p className='mb-0'>cheumtours@gmail.com</p>
                      </ListGroupItem>
 
                      <ListGroupItem className='ps-0 border-0 d-flex align-items-center gap-3'>
@@ -92,7 +92,7 @@ const Footer = () => {
                            Phone:
                         </h6>
 
-                        <p className='mb-0'>Lorem</p>
+                        <p className='mb-0'>02-987-6543</p>
                      </ListGroupItem>
                   </ListGroup>
                </Col>
