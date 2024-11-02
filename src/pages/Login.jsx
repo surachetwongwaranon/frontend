@@ -39,6 +39,11 @@ const Login = () => {
          if(!res.ok) alert(result.message)
             console.log(result.role)
 
+         if (!res.ok) {
+            dispatch({ type: "LOGIN_FAILURE", payload: result.message });
+            return;
+         }
+
          dispatch({type:"LOGIN_SUCCESS", payload:result.data})
          if (result.role === 'user') {
             navigate('/');
@@ -47,6 +52,7 @@ const Login = () => {
         }
       } catch(err) {
          dispatch({type:"LOGIN_FAILURE", payload:err.message})
+         alert('Something went wrong. Please try again later.');
       }
    }
 

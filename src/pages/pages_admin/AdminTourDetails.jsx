@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './admin-tour-details.css';
-import { Container, Row, Col, Form, Button, Input } from 'reactstrap';
+import { Container, Row, Col, Form, Button } from 'reactstrap';
 import { useParams, useNavigate } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
 import { BASE_URL } from '../../utils/config';
@@ -116,7 +116,7 @@ const AdminTourDetails = () => {
                                     <input className="Input__info" type="text" value={city} onChange={(e) => setCity(e.target.value)} placeholder="City" />
                                     <input className="Input__info" type="text" value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Address" />
                                     <input className="Input__info" type="number" value={price} onChange={(e) => setPrice(e.target.value)} placeholder="Price" />
-                                    <input className="Input__info" type="textarea" value={desc} onChange={(e) => setDesc(e.target.value)} placeholder="Description" />
+                                    <textarea className="Input__info" type="textarea" value={desc} onChange={(e) => setDesc(e.target.value)} placeholder="Description" />
                                     <input className="Input__info" type="text" value={photo} onChange={(e) => setPhoto(e.target.value)} placeholder="Photo URL" />
                                     <h6>Featured SALE</h6>
                                     <select value={featured} onChange={(e) => setFeatured(e.target.value === 'true')}>

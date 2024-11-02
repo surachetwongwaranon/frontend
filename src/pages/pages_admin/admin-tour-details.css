@@ -64,7 +64,6 @@
     outline: none;
  }
 
- 
  /* =============== RESPONSIVE ================ */
  @media only screen and (max-width: 768px) {
     .tour__extra-details {
