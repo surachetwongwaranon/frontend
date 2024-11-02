@@ -39,7 +39,7 @@ const AddTour = () => {
             if (!res.ok) {
                 return alert(result.message);
             }
-            alert('Tour updated successfully!');
+            alert('Tour created successfully!');
             navigate('/admin-home'); 
         } catch (error) {
             alert(error.message);
