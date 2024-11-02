@@ -83,7 +83,7 @@ const TourDetails = () => {
                               <span><i className='ri-money-dollar-circle-line'></i> {price ? price.toLocaleString() : 'N/A'} / ต่อคน</span>
                            </div>
                            <h5>Description</h5>
-                           <p>{desc}</p>
+                           <p dangerouslySetInnerHTML={{ __html: desc?.replace(/\n/g, '<br />') }}></p>
                         </div>
 
                         <div className="tour__reviews mt-4">
